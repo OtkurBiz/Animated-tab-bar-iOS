@@ -13,8 +13,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-       
-       // tabbar = self.tabBarController as? EYTabBar
+
         let push:UIButton = UIButton(frame: CGRectMake(200, 200, 60, 60))
         push.setTitle("push", forState: UIControlState.Normal)
         push.addTarget(self, action: "push:", forControlEvents: UIControlEvents.TouchUpInside)
@@ -22,14 +21,7 @@ class ViewController: UIViewController {
         
         self.view.addSubview(push)
     }
-
-//    override func viewDidAppear(animated: Bool) {
-//        println(self.tabBarController)
-//        tabbar = self.tabBarController as? EYTabBar
-//        tabbar.showTabBar()
-//    }
     
-   
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -38,11 +30,9 @@ class ViewController: UIViewController {
     
     func push(sender:AnyObject){
         let controller:vv = vv()
-        controller.view.backgroundColor = UIColor.yellowColor()
-        //var TabBar:EYTabBar =  controller.tabBarController as EYTabBar
-       // controller.hidesBottomBarWhenPushed = true
+        controller.view.backgroundColor = UIColor.whiteColor()
         self.navigationController?.pushViewController(controller, animated: true)
-       // self.navigationController?.hidesBottomBarWhenPushed = true
+     
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -53,7 +43,7 @@ class ViewController: UIViewController {
 
 }
 class vv:UIViewController{
-     var tabbar:EYTabBar?
+    var tabbar:EYTabBar?
     override func viewDidLoad() {
         super.viewDidLoad()
           //println(self.tabBarController)
@@ -64,14 +54,11 @@ class vv:UIViewController{
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
          println(self.tabBarController)
-         //self.navigationController?.tabBarController?.hidesBottomBarWhenPushed = true
          self.tabBarController?.tabBar.hidden = true
-        tabbar = self.tabBarController as? EYTabBar
-        tabbar?.hideTabBar()
+         tabbar = self.tabBarController as? EYTabBar
+         tabbar?.hideTabBar()
     }
-    override func viewDidAppear(animated: Bool) {
-        
-    }
+ 
     
 }
 

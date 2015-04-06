@@ -13,7 +13,7 @@ class EYTabBar: UITabBarController {
     var EYTabbarView:UIView!
     var selectedView:UIView!
     private var tabBarImages:NSArray = []
-    var barHeight:CGFloat = 50
+    var barHeight:CGFloat = 0
     var AnimationDuration:NSTimeInterval = 0.38
     var SpringDamping:CGFloat = 0.7
     var SpringVelocity:CGFloat = 0.6
@@ -40,14 +40,10 @@ class EYTabBar: UITabBarController {
     }
     
     func initCustomTabBar(){
-     
+        barHeight = self.tabBar.frame.size.height
         EYTabbarView = UIView(frame: CGRectMake(0, height-barHeight, self.view.frame.width, barHeight))
-       // EYTabbarView = UIView(frame: CGRectMake(0,0, self.view.frame.width, self.tabBar.frame.height))
         EYTabbarView.backgroundColor =  UIColor(red: 67/255.0, green: 74/255.0, blue: 84/255.0, alpha: 1.0)
         self.tabBar.userInteractionEnabled = false
-        //self.tabBar.delegate = nil
-        // self.tabBar.userActivity = false
-       // self.tabBar.addSubview(EYTabbarView)
         self.view.addSubview(EYTabbarView)
     }
     
