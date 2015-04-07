@@ -30,4 +30,8 @@ DerivedData
 # Add this line if you want to avoid checking in source code from Carthage dependencies.
 # Carthage/Checkouts
 
+<<<<<<< HEAD
 Carthage/Build
+=======
+Carthage/Build
+>>>>>>> d3ca6e91d57643c3cde0906002d2db48763972e7
