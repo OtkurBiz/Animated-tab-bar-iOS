@@ -34,21 +34,18 @@ class EYTabBar: UITabBarController {
     var SpringDamping:CGFloat = 0.7
     var SpringVelocity:CGFloat = 0.6
     private var unitWidth:CGFloat!
-       let height:CGFloat = UIScreen.mainScreen().bounds.height
+    let height:CGFloat = UIScreen.mainScreen().bounds.height
     override  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-    override private init() {
-        super.init()
-        
-    }
+    
     required internal init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
     
-    init(icons:NSArray){
-        super.init()
+    public init(icons:NSArray){
+        super.init(nibName: nil, bundle: nil)
         tabBarImages = icons
         count = icons.count
         initCustomTabBar()
@@ -72,7 +69,7 @@ class EYTabBar: UITabBarController {
         EYTabbarView.addSubview(selectedView)
         
         for(var i=0;i<count;i++){
-            let imgName:String = tabBarImages[i] as String
+            let imgName:String = tabBarImages[i] as! String
             let img:UIImage = UIImage(named: imgName)!
             let x:CGFloat = CGFloat(i)*unitWidth
             var button:UIButton = UIButton(frame: CGRectMake(x, 0, unitWidth, barHeight))
@@ -97,11 +94,11 @@ class EYTabBar: UITabBarController {
     
     func showTabBar(){
         //EYTabbarView.frame.size.height = barHeight
-       EYTabbarView.frame.origin.y = height-barHeight
+        EYTabbarView.frame.origin.y = height-barHeight
     }
     
     func hideTabBar(){
-      //   EYTabbarView.frame.size.height = 0
+        //   EYTabbarView.frame.size.height = 0
         EYTabbarView.frame.origin.y += barHeight
         
     }
