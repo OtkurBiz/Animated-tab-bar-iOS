@@ -1,7 +1,7 @@
 # Animated-TabBar-ios
 Animated tab bar written in swift 
 
-
+## screenshots GIF
 ![screens](https://raw.githubusercontent.com/OtkurBiz/Animated-TabBar-ios-/master/screen_shot/EYTabBar2.gif)
 
 ## Requirements
