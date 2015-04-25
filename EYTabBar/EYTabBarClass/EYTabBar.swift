@@ -29,12 +29,14 @@ class EYTabBar: UITabBarController {
     var EYTabbarView:UIView!
     var selectedView:UIView!
     private var tabBarImages:NSArray = []
+    private var tabBarButtons:NSMutableArray = []
     var barHeight:CGFloat = 0
     var AnimationDuration:NSTimeInterval = 0.38
     var SpringDamping:CGFloat = 0.7
     var SpringVelocity:CGFloat = 0.6
     private var unitWidth:CGFloat!
     let height:CGFloat = UIScreen.mainScreen().bounds.height
+    
     override  init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
@@ -77,12 +79,19 @@ class EYTabBar: UITabBarController {
             button.setImage(img, forState: UIControlState.Normal)
             button.tag = i
             button.addTarget(self, action: "selectTab:", forControlEvents: UIControlEvents.TouchUpInside)
+            tabBarButtons.addObject(button)
             self.EYTabbarView.addSubview(button)
         }
         
     }
     
     
+    func setCurrentTab(index:Int){
+        if let button:UIButton = tabBarButtons.objectAtIndex(index) as? UIButton{
+            selectTab(button)
+        }
+        
+    }
     
     func selectTab(button:UIButton){
         self.selectedIndex = button.tag
